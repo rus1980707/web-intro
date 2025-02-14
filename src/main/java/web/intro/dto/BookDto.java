@@ -15,5 +15,4 @@ public class BookDto {
 	private Double price;
 	private String description;
 	private String coverImage;
-
 }
