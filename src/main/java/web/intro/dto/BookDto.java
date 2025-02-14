@@ -1,4 +1,4 @@
-package web_intro.dto;
+package web.intro.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

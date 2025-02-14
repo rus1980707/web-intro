@@ -1,9 +1,9 @@
-package web_intro;
+package web.intro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "web.intro")
 public class WebIntroApplication {
 
 	public static void main(String[] args) {
