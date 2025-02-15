@@ -8,5 +8,6 @@ import web.intro.model.Book;
 @Mapper(componentModel = "spring")
 public interface BookMapper {
 	BookDto toDto(Book book);
+
 	Book toEntity(CreateBookRequestDto dto);
 }
