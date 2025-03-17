@@ -9,7 +9,7 @@ import web.intro.seervice.BookService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/api/books.yaml")
 @RequiredArgsConstructor
 public class BookController {
 	private final BookService bookService;
@@ -29,4 +29,8 @@ public class BookController {
 		return bookService.createBook(bookDto);
 	}
 
+	@DeleteMapping("/{id}")
+	public void deleteBook(@PathVariable Long id) {
+		bookService.deleteBook(id);
+	}
 }

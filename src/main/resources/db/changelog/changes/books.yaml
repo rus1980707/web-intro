@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: rus-lan
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: author
+                  type: varchar(255)
+              - column:
+                  name: isbn
+                  type: varchar(20)
+              - column:
+                  name: price
+                  type: decimal(10,2)
+              - column:
+                  name: description
+                  type: text
+              - column:
+                  name: cover_image
+                  type: varchar(255)
+              - column:
+                  name: deleted
+                  type: boolean
+                  defaultValue: false
+                  constraints:
+                    nullable: false

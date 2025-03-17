@@ -34,4 +34,10 @@ public class BookService {
 		return bookMapper.toDto(bookRepository.save(book));
 	}
 
+	public void deleteBook(long id) {
+		Book book = bookRepository.findById(id)
+						.orElseThrow(()-> new EntityNotFoundException("Book not found"));
+        book.setDeleted(true);
+		bookRepository.save(book);
+	}
 }
