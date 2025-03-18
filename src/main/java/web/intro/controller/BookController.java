@@ -9,7 +9,7 @@ import web.intro.seervice.BookService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/books.yaml")
+@RequestMapping("/api/books")
 @RequiredArgsConstructor
 public class BookController {
 	private final BookService bookService;

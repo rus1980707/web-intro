@@ -13,6 +13,7 @@ import org.hibernate.annotations.Where;
 @NoArgsConstructor
 @SQLDelete(sql = "UPDATE book SET deleted = true WHERE id=?")
 @Where(clause = "deleted=false")
+@Table(name = "books")
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +21,7 @@ public class Book {
 	private String title;
 	private String author;
 	private String isbn;
-	private Double price;
+	private Double bigDecimal;
 	private String description;
 	private String coverImage;
 

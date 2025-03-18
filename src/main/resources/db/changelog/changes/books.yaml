@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1
+      id: books
       author: rus-lan
       changes:
         - createTable:
@@ -22,7 +22,7 @@ databaseChangeLog:
                   type: varchar(255)
               - column:
                   name: isbn
-                  type: varchar(20)
+                  type: char(20)
               - column:
                   name: price
                   type: decimal(10,2)

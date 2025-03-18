@@ -108,7 +108,7 @@
 					<url>jdbc:mysql://localhost:3306/bookstore</url>
 					<username>root</username>
 					<password>0707</password>
-					<driver>com.mysql.cj.jdbc.Driver</driver> <!-- ✅ Explicitly set the driver -->
+					<driver>com.mysql.cj.jdbc.Driver</driver>
 				</configuration>
 			</plugin>
 			<plugin>
