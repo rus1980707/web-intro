@@ -1,19 +1,18 @@
 package web.intro.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
+import java.math.BigDecimal;
+
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
+@Setter
+@Table(name = "books")
 @SQLDelete(sql = "UPDATE book SET deleted = true WHERE id=?")
 @Where(clause = "deleted=false")
-@Table(name = "books")
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +20,7 @@ public class Book {
 	private String title;
 	private String author;
 	private String isbn;
-	private Double bigDecimal;
+	private BigDecimal price;
 	private String description;
 	private String coverImage;
 

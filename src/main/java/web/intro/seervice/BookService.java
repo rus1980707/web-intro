@@ -26,7 +26,7 @@ public class BookService {
 
 	public BookDto getBookById(Long id) {
 		return bookMapper.toDto(bookRepository.findById(id)
-				.orElseThrow(() -> new EntityNotFoundException("Book not found")));
+				.orElseThrow(() -> new EntityNotFoundException("Book by id not found")));
 	}
 
 	public BookDto createBook(CreateBookRequestDto bookDto) {
@@ -36,8 +36,9 @@ public class BookService {
 
 	public void deleteBook(long id) {
 		Book book = bookRepository.findById(id)
-						.orElseThrow(()-> new EntityNotFoundException("Book not found"));
+						.orElseThrow(()-> new EntityNotFoundException("Book by id not found"));
         book.setDeleted(true);
 		bookRepository.save(book);
+		bookRepository.deleteById(id);
 	}
 }
