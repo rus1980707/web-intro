@@ -17,11 +17,22 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(nullable = false, length = 255)
 	private String title;
+
+	@Column(nullable = false, length = 255)
 	private String author;
+
+	@Column(nullable = false, unique = true, length = 20)
 	private String isbn;
+
+	@Column(nullable = false, precision = 10, scale = 2)
 	private BigDecimal price;
+
+	@Column(length = 2000)
 	private String description;
+
+	@Column(length = 500)
 	private String coverImage;
 
 	@Column(nullable = false)
