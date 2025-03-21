@@ -9,9 +9,7 @@ import web.intro.mapper.BookMapper;
 import web.intro.model.Book;
 import web.intro.repository.BookRepository;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -38,9 +36,7 @@ public class BookService {
 	public BookDto updateBook(Long id, CreateBookRequestDto bookDto) {
 		Book curentBook =bookRepository.findById(id)
 				.orElseThrow(() -> new EntityNotFoundException("Book by id not found"));
-		curentBook.setTitle(bookDto.getTitle());
-		curentBook.setAuthor(bookDto.getAuthor());
-		curentBook.setPrice(BigDecimal.valueOf(bookDto.getPrice()));
+		bookMapper.updateBookDto(bookDto, curentBook);
 
 		curentBook = bookRepository.save(curentBook);
 		return bookMapper.toDto(curentBook);
