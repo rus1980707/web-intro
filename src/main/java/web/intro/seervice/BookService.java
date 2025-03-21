@@ -10,7 +10,6 @@ import web.intro.model.Book;
 import web.intro.repository.BookRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -21,12 +20,12 @@ public class BookService {
 	public List<BookDto> getAll() {
 		return bookRepository.findAll().stream()
 				.map(bookMapper::toDto)
-				.collect(Collectors.toList());
+				.toList();
 	}
 
 	public BookDto getBookById(Long id) {
 		return bookMapper.toDto(bookRepository.findById(id)
-				.orElseThrow(() -> new EntityNotFoundException("Book not found")));
+				.orElseThrow(() -> new EntityNotFoundException("Book by id not found")));
 	}
 
 	public BookDto createBook(CreateBookRequestDto bookDto) {
@@ -34,10 +33,16 @@ public class BookService {
 		return bookMapper.toDto(bookRepository.save(book));
 	}
 
-	public void deleteBook(long id) {
-		Book book = bookRepository.findById(id)
-						.orElseThrow(()-> new EntityNotFoundException("Book not found"));
-        book.setDeleted(true);
-		bookRepository.save(book);
+	public BookDto updateBook(Long id, CreateBookRequestDto bookDto) {
+		Book curentBook =bookRepository.findById(id)
+				.orElseThrow(() -> new EntityNotFoundException("Book by id not found"));
+		bookMapper.updateBookDto(bookDto, curentBook);
+
+		curentBook = bookRepository.save(curentBook);
+		return bookMapper.toDto(curentBook);
+	}
+
+	public void deleteById(long id) {
+		bookRepository.deleteById(id);
 	}
 }
