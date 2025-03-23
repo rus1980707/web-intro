@@ -14,8 +14,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BookService {
-	private final BookRepository bookRepository;
-	private final BookMapper bookMapper;
+    private final BookRepository bookRepository;
+    private final BookMapper bookMapper;
 
 	public List<BookDto> getAll() {
 		return bookRepository.findAll().stream()
@@ -23,26 +23,26 @@ public class BookService {
 				.toList();
 	}
 
-	public BookDto getBookById(Long id) {
+	public BookDto getBookById(final Long id) {
 		return bookMapper.toDto(bookRepository.findById(id)
 				.orElseThrow(() -> new EntityNotFoundException("Book by id not found")));
 	}
 
-	public BookDto createBook(CreateBookRequestDto bookDto) {
+	public BookDto createBook(final CreateBookRequestDto bookDto) {
 		Book book = bookMapper.toEntity(bookDto);
 		return bookMapper.toDto(bookRepository.save(book));
 	}
 
-	public BookDto updateBook(Long id, CreateBookRequestDto bookDto) {
-		Book curentBook =bookRepository.findById(id)
+	public BookDto updateBook(final Long id, final CreateBookRequestDto bookDto) {
+        Book currentBook = bookRepository.findById(id)
 				.orElseThrow(() -> new EntityNotFoundException("Book by id not found"));
-		bookMapper.updateBookDto(bookDto, curentBook);
+		bookMapper.updateBookDto(bookDto, currentBook);
 
-		curentBook = bookRepository.save(curentBook);
-		return bookMapper.toDto(curentBook);
+		currentBook = bookRepository.save(currentBook);
+		return bookMapper.toDto(currentBook);
 	}
 
-	public void deleteById(long id) {
+	public void deleteById(final long id) {
 		bookRepository.deleteById(id);
 	}
 }
