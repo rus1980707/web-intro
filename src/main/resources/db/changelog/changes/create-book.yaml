@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: books
+      id: create-book
       author: rus-lan
       changes:
         - createTable:
