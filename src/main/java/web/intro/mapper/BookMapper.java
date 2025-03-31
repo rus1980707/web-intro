@@ -9,11 +9,13 @@ import web.intro.model.Book;
 
 @Mapper(componentModel = "spring")
 public interface BookMapper {
-	BookDto toDto(Book book);
 
-	Book toEntity(CreateBookRequestDto dto);
+    BookDto toDto(Book book);
 
-	@Mapping(target = "id" , ignore = true)
-	void updateBookDto(CreateBookRequestDto bookDto, @MappingTarget Book curentBook);
+    Book toEntity(CreateBookRequestDto dto);
+
+    @Mapping(target = "id", ignore = true)
+    void updateBookDto(CreateBookRequestDto bookDto,
+                       @MappingTarget Book currentBook);
 
 }
