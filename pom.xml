@@ -29,7 +29,7 @@
 	<properties>
 		<java.version>21</java.version>
 		<maven.checkstyle.plugin.configLocation>
-			https://raw.githubusercontent.com/mate-academy/style-guides/master/java/checkstyle.xml
+		checkstyle.xml
 		</maven.checkstyle.plugin.configLocation>
 	</properties>
 	<dependencies>
@@ -89,7 +89,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<configLocation>${maven.checkstyle.plugin.configLocation}</configLocation>
+					<configLocation>checkstyle.xml</configLocation>
 					<consoleOutput>true</consoleOutput>
 					<failsOnError>true</failsOnError>
 					<linkXRef>false</linkXRef>
@@ -102,7 +102,7 @@
 				<configuration>
 					<changeLogFile>src/main/resources/db/changelog/db.changelog-master.yaml</changeLogFile>
 					<url>jdbc:mysql://localhost:3306/bookstore</url>
-					<username>root}</username>
+					<username>root</username>
 					<password>0707</password>
 					<driver>com.mysql.cj.jdbc.Driver</driver>
 				</configuration>
