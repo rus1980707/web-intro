@@ -32,6 +32,7 @@
 			checkstyle.xml
 		</maven.checkstyle.plugin.configLocation>
 		<liquibase.version>4.29.2</liquibase.version>
+		<tomcat.version>10.1.35</tomcat.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -58,8 +59,18 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>${tomcat.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
+			<version>4.29.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-maven-plugin</artifactId>
 			<version>4.29.2</version>
 		</dependency>
 		<dependency>
